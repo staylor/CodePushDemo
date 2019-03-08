@@ -1,5 +1,8 @@
 import React from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import codePush from 'react-native-code-push';
+
+const codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu',
@@ -35,4 +38,4 @@ function App() {
   );
 }
 
-export default App;
+export default codePush(codePushOptions)(App);
